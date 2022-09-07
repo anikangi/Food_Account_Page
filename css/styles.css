@@ -1,0 +1,320 @@
+/*
+FONT FAMILIES
+font-family: 'Playfair Display', serif;
+font-family: 'Cabin', sans-serif;
+*/
+
+/*
+COLOR PALETTE
+https://coolors.co/a6c2d0-05003d-502f37-9b5d31-f1eae4-d1ad91
+#A6C2D0 - Pale Cerulean (baby blue)
+#05003D - Russian Violet (dark blue)
+#502F37 - Eggplant (darkest brown)
+#9B5D31 - Windsor Tan (medium brown)
+#D1AD91 - Tumbleweed (light-to-medium brown)
+#F1EAE4 - Isabelline (lightest brown - for background)
+**will most likely only use 3 of the 4 browns
+*/
+
+/* add your styles here */
+/* GLOBAL STYLES */
+html{
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Cabin', sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background: #A6C2D0;
+
+}
+h1 {
+  font-family: 'Playfair Display', serif;
+  display: inline-block;
+}
+a  {
+  text-decoration: none;
+  color: #05003D;
+}
+.content-wrapper {
+  margin: 0 330px;
+}
+
+/* HEADER - MENU BAR + TITLE */
+header {
+  background-color: #F1EAE4;
+  height: 70px;
+}
+header h1 {
+  font-weight: 400;
+  color: #05003D;
+}
+.header {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: baseline; /* vertical alignment */
+  width: 925px;
+}
+.menu-bar {
+  font-size: 15px;
+  color: #9B5D31;
+  display: inline-flex;
+  padding: 0;
+  list-style-type: none;
+  vertical-align: bottom;
+}
+.menu-bar a {
+  color: #9B5D31;
+}
+.menu-bar li {
+  margin: 10px;
+}
+#header-title {
+  text-align: center;
+  text-indent: 68px;
+}
+.search_icon {
+  background-color: #9B5D31;
+  border-radius: 2px;
+  padding: 2px;
+  width: 20px;
+  height: 20px;
+}
+
+/* MAIN - OATSPIRATION PAGE */
+main {
+  background-color: #A6C2D0;
+  background-image: url(oatspiration_background_normal.jpg);
+  background-size:  cover;
+  background-position: top right;
+  background-repeat: no-repeat;
+  color: #05003D;
+}
+main h1 {
+  color: #502F37;
+}
+.recipes {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  justify-content: center;
+}
+.recipes li {
+  display: block;
+  width: 250px;
+  margin: 15px 15px;
+}
+.recipes img {
+  width: 250px;
+  height: 250px;
+}
+#page-title {
+  padding: 5px;
+  text-shadow: -1px -1px 5px #F1EAE4, 1px -1px 5px #F1EAE4, -1px 1px 5px #F1EAE4, 1px 1px 5px #F1EAE4;
+  font-size: 55px;
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+/* PAGE ENTRY POPUP (MODAL) + QUIZ */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #F1EAE4;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px 35px;
+  border: 1px solid #888;
+  width: 60%; /* Could be more or less, depending on screen size */
+  font-size: 22px;
+  color: #05003D;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #05003D;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button, .quiz-button {
+  font-family: 'Cabin', sans-serif;
+  font-size: 15px;
+  margin: 0 10px;
+  background-color: rgba(166, 194, 208,.4);
+  color: inherit;
+  border-width: 0;
+  border-radius: 7px;
+  padding: 6px;
+}
+
+.button:hover,
+.button:focus,
+.quiz-button:hover,
+.quiz-button:focus
+ {
+  background-color: #A6C2D0;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.button:focus {
+  font-weight: bold;
+}
+
+/* if user selects no */
+#no-selected {
+  display: none;
+}
+
+/* if user selects yes - QUIZ */
+#yes-selected {
+  display: none;
+}
+
+/* will eventually add more styles here */
+#quiz {
+  display: none;
+}
+
+.quiz-button {
+  position: relative;
+  float:right;
+}
+
+#next {
+    display:none;
+}
+
+
+#prev {
+    display:none;
+}
+
+#start {
+    display:none;
+    width: 90px;
+}
+
+/* SEARCH SIDE BAR */
+.translucent-layer {
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    transition: 0s;
+    transition-duration: 0s;
+
+}
+.search-nav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  top: 0; /* Stay at the top */
+  right: 0;
+  background-color: #F1EAE4;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  text-align: center;
+  color: #05003D;
+  z-index: 2; /* Stay on top */
+}
+.search-nav h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  margin-bottom: 25px;
+
+}
+.search-nav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 50px;
+  margin-left: 50px;
+  margin-top: 71.6px;
+  margin-right: 20px;
+}
+.search-title {
+  color: #9B5D31;
+  text-transform: uppercase;
+}
+.search-list {
+  color: #502F37;
+}
+.search-list a {
+  padding: 5.3px;
+  margin: 0 130px;
+  font-size: 20px;
+}
+.search-list a:hover,
+.search-list a:focus  {
+  font-weight: bold;
+  background-color: rgba(255, 255, 255,.55);
+  border-radius: 10px;
+}
+
+#trending-searches a {
+  display: block;
+}
+#search-input-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #9B5D31;
+  border-radius: 10px;
+  margin: 0 80px;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+}
+#search-input {
+  border-width: 0;
+  font-family: inherit;
+  font-style: italic;
+  background-color: #9B5D31;
+  color: white;
+  padding: 0 5px;
+  font-size: 20px;
+  width: 230px;
+}
+
+#search-input:focus {
+  outline: 0;
+  color: white;
+}
+
+#searchNavIcon {
+  padding: 2px;
+  border-color: #9B5D31;
+  border-width: 10px;
+  box-sizing: content-box;
+}

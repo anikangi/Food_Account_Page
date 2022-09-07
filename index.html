@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Neeks' Treats</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&family=Playfair+Display:wght@400;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" defer></script>
+    <script src="script.js" defer></script>
+
+  </head>
+  <body>
+
+    <!-- MENU -->
+    <header>
+      <div class="content-wrapper header">
+        <ul class="menu-bar">
+          <li>
+            <a href="#" onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">Home</a>
+          </li>
+          <li>
+            <a href="#" onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">Why go vegetarian?</a>
+          </li>
+        </ul>
+        <h1 id="header-title">Neeks' Treats</h1>
+        <ul class="menu-bar">
+          <li>
+            <a href="#" onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">Recipes</a>
+          </li>
+          <li>
+            <a href="#" onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">Wellness</a>
+          </li>
+          <li>
+            <a href="#" onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">Nutrition</a>
+          </li>
+          <li>
+            <!-- <a id="insta-link" href="#" aria-label="Instagram">.</a> -->
+            <img id="insta_icon" src="insta_vintage_icon.png" alt=""  onmouseover="this.src='insta_vintage_icon_grayed.png'" onmouseout="this.src='insta_vintage_icon.png'" width="20" height="20">
+          </li>
+          <li onclick="openSearchNav()">
+            <img class="search_icon" src="search_icon.png" alt="" width="15" height="15">
+            <!-- <form method="get" role="search">
+              <label>Search</label>
+              <input type="search" placeholder="search...">
+            </form> -->
+          </li>
+        </ul>
+      </div>
+    </header>
+
+<!-- SEARCH SIDE BAR-->
+    <div class="translucent-layer" id="search-wrapper">
+      <div id="my-search-nav" class="search-nav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <h2>Search</h2>
+        <div id="search-input-wrapper">
+          <div>
+            <input id="search-input" onkeypress="search_entered(this)" autocomplete="off" type="search" placeholder="Search recipes…" aria-labelledby="search-panelButton" value="" autofocus="">
+          </div>
+          <img id="searchNavIcon" class="search_icon" onclick="search_entered(this)" src="search_icon.png" alt="" width="15" height="15">
+        </div>
+        <p class="search-title">Trending Searches</p>
+        <!-- you could make these lists instead of divs, then the 'a's become list items-->
+        <div id="trending-searches" class="search-list">
+          <a href="#">Baked Oats</a>
+          <a href="#">Crispy Tofu</a>
+          <a href="#">Buddha Bowls</a>
+          <a href="#">Healthy Desserts</a>
+        </div>
+        <p class="search-title">Recent Searches</p>
+        <div id="recent-searches" class="search-list">
+          <!-- inject HTML here through Javascript when user searches something  -->
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- MAIN PAGE CONTENT-->
+    <main>
+      <div class="content-wrapper">
+        <!-- title -->
+        <section>
+          <h1 id="page-title">Oatspiration.</h1>
+        </section>
+
+        <!-- recipes -->
+        <section>
+          <ul class="recipes">
+            <li>
+              <img src="chocoblueb_circle.png" alt="" width="300" height="300">
+              <a href="#">Chocolate Cinnamon Blueberry Oats</a>
+            </li>
+            <li>
+              <img src="chaibanana_circle.png" alt="" width="300" height="300">
+              <a href="#">Chai Oats</a>
+            </li>
+            <li>
+              <img src="carrotcakeCircle.png" alt="" width="300" height="300">
+              <a href="#">Carrot Cake Oats</a>
+            </li>
+            <li>
+              <img src="biscoffberry_circle.png" alt="" width="200" height="200">
+              <a href="#">Biscoff Brownie Oats</a>
+            </li>
+            <li>
+              <img src="strawberriesncream_circle.png" alt="" width="300" height="300">
+              <a href="#">Strawberries N' Cream Oats</a>
+            </li>
+            <li>
+              <img src="chocopb_circle.png" alt="" width="300" height="300">
+              <a href="#">Chocolate Peanut Butter Oats</a>
+            </li>
+            <li>
+              <img src="vanillasteelcut_circle.png" alt="" width="300" height="300">
+              <a href="#">Vanilla Steel-Cut Oats</a>
+            </li>
+            <li>
+              <img src="applesncinnamon_circle.png" alt="" width="300" height="300">
+              <a href="#">Apples N' Cinnamon Oats</a>
+            </li>
+
+
+          </ul>
+        </section>
+      </div>
+    </main>
+
+<!-- PAGE ENTER POPUP (MODAL) + QUIZ -->
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+
+        <!-- initial message on popup -->
+        <div id="page-entry-popup">
+          <h3>Hey there! Welcome to Neek's Treats.</h3>
+          <p>Would you like to take a short quiz to get a list of recipes curated to your taste?</p>
+          <button class="button" type="button">Sure!</button>
+          <button class="button" type="button">No, thanks</button>
+        </div>
+
+        <!-- if user selects YES -->
+        <div id="yes-selected">
+          <!-- quiz page goes in here-->
+          <div id='quiz'></div> <!-- quiz question (text) + answer choices (radio  buttons) goes in here-->
+          <div class='quiz-button' id='next'><a href='#'>Next</a></div>
+          <div class='quiz-button' id='prev'><a href='#'>Previous</a></div>
+          <div class='quiz-button' id='start'> <a href='#'>Start Over</a></div>
+
+        </div>
+
+
+        <!-- if user selects NO -->
+        <div id="no-selected">
+          <p>No worries, enjoy browsing my recipes!</p>
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </body>
+</html>
